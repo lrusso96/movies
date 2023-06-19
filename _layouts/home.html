@@ -1,0 +1,17 @@
+---
+layout: default
+---
+    <nav>
+      
+    </nav>
+
+    <div class="mt-8">
+      {% include card.html post=site.posts.first main=true %}
+    </div>
+    <div class="my-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {% for post in site.posts offset:1 %}
+        {% include card.html post=post %}
+        {% endfor %}
+    </div>
+      
+    </div>  
