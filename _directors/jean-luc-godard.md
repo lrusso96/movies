@@ -1,0 +1,6 @@
+---
+layout: director
+name: Jean-Luc Godard
+cover: /assets/images/jean-luc-godard.jpg
+---
+Pioniere della Nouvelle Vague francese, Jean-Luc Godard ha avuto un effetto incalcolabile sul cinema moderno che non accenna a diminuire. Prima di dirigere, Godard è stato studente di etnologia e critico per i Cahiers du cinéma, e il suo approccio al cinema riflette il suo interesse per l'intreccio tra forma cinematografica e realtà sociale. Il suo film d'esordio, Senza fiato - il suo primo e ultimo successo mainstream - è, ovviamente, un Godard essenziale: la sua strategia di fusione tra cultura alta (Mozart) e bassa (thriller polizieschi americani) è stata imitata da generazioni di registi. Con l'avanzare degli anni Sessanta, la produzione di Godard divenne sempre più radicale, sia dal punto di vista estetico (Una donna è una donna, Il disprezzo, La banda degli estranei) che politico (Masculin féminin, Pierrot le fou), fino a quando, nel 1968, rinunciò del tutto al cinema commerciale, formando un collettivo di registi di sinistra (il Gruppo Dziga Vertov) e realizzando film come Tout va bien. Oggi Godard rimane il nostro più grande paroliere sul trauma storico, sulla religione e sull'eredità del cinema.

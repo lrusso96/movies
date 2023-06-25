@@ -8,7 +8,13 @@
         <p class="text-white group-hover:text-amber-300 mt-2 text-lg md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold">{{ include.post.director }}</p>
         {% else %}
         <h1 class="text-white group-hover:text-amber-300 text-xl md:text-2xl xl:text-4xl 3xl:text-5xl font-extrabold uppercase ">{{ include.post.title }}</h1>
-        <p class="text-white group-hover:text-amber-300 mt-2 text-lg md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold">{{ include.post.director }}</p>
+        <p class="text-white group-hover:text-amber-300 mt-2 text-lg md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold">
+          {% if include.director == true %}
+          {{ include.post.director }}
+          {% else %}
+          {{ include.post.year }}
+          {% endif %}
+        </p>
         {% endif %}
       </div>
       </a>
