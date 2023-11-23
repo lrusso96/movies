@@ -1,0 +1,283 @@
+---
+layout: default
+title: Stats
+pagination: 
+  enabled: false
+---
+<div class="w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+    <div class="flex justify-between pb-4 mb-4 border-b border-gray-200 dark:border-gray-700">
+      <div class="flex items-center">
+        <div class="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center me-3">
+          <svg class="w-6 h-6 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 19">
+            <path d="M14.5 0A3.987 3.987 0 0 0 11 2.1a4.977 4.977 0 0 1 3.9 5.858A3.989 3.989 0 0 0 14.5 0ZM9 13h2a4 4 0 0 1 4 4v2H5v-2a4 4 0 0 1 4-4Z"/>
+            <path d="M5 19h10v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2ZM5 7a5.008 5.008 0 0 1 4-4.9 3.988 3.988 0 1 0-3.9 5.859A4.974 4.974 0 0 1 5 7Zm5 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm5-1h-.424a5.016 5.016 0 0 1-1.942 2.232A6.007 6.007 0 0 1 17 17h2a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5ZM5.424 9H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h2a6.007 6.007 0 0 1 4.366-5.768A5.016 5.016 0 0 1 5.424 9Z"/>
+          </svg>
+        </div>
+        <div>
+          <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">240 ({{site.posts | size }})</h5>
+          <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Movies seen</p>
+        </div>
+      </div>
+    </div>   
+    <div id="column-chart" class="px-6"></div>
+  </div>
+  
+  <!-- Radial Chart -->
+  <div class="grid grid-cols-4 mx-12">
+    <div class="py-6" id="radial-chart-imdb"></div>
+    <div class="py-6" id="radial-chart-oscar"></div>
+    <div class="py-6" id="radial-chart-sas"></div>
+    <div class="py-6" id="radial-chart-cannes"></div>
+    <div class="py-6" id="radial-chart-afi"></div>
+  </div>
+
+</div>
+
+{% assign imdb = 0 %}
+{% assign oscar = 0 %}
+{% assign cannes = 0 %}
+{% for post in site.posts %}
+   {% if post.imdb250 %}
+    {% assign imdb = imdb | plus: 1 %}
+  {% endif %}
+  {% if post.oscar %}
+    {% assign oscar = oscar | plus: 1 %}
+   {% endif %}
+  {% if post.cannes %}
+    {% assign cannes = cannes | plus: 1 %}
+   {% endif %}
+{% endfor %}
+<script>
+  let imdb = "{{imdb}}"
+  let oscar = "{{oscar}}"
+  let cannes = "{{cannes}}"
+  window.addEventListener("load", function() {
+    const getChartOptions = (label, val,max) => {
+        return {
+          series: [100* (val / max).toFixed(3)],
+          chart: {
+          height: 280,
+          type: 'radialBar',
+        },
+        plotOptions: {
+          radialBar: {
+            hollow: {
+              size: '70%',
+            }
+          },
+        },
+        labels: [label],
+      }
+    }
+      
+      if (document.getElementById("radial-chart-imdb") && typeof ApexCharts !== 'undefined') {
+        var chart = new ApexCharts(document.querySelector("#radial-chart-imdb"), getChartOptions('IMDb Top 250', imdb, 250));
+        chart.render();
+        chart = new ApexCharts(document.querySelector("#radial-chart-oscar"), getChartOptions('Oscar al miglior film', oscar, 95));
+        chart.render();
+        chart = new ApexCharts(document.querySelector("#radial-chart-cannes"), getChartOptions("Palma d'oro", cannes, 96));
+        chart.render();
+        chart = new ApexCharts(document.querySelector("#radial-chart-imdb4"), getChartOptions());
+        chart.render();
+        chart = new ApexCharts(document.querySelector("#radial-chart-imdb5"), getChartOptions());
+        chart.render();
+      }
+  });
+</script>
+
+
+
+  <script>
+    // ApexCharts options and config
+    window.addEventListener("load", function() {
+      const options = {
+            colors: ["#1A56DB", "#FDBA8C"],
+            series: [
+              {
+                name: "Movies",
+                color: "#1A56DB",
+                data: [
+                  { x: "1925", y: 1 },
+                  { x: "1926", y: 1 },
+                  { x: "1927", y: 1 },
+                  { x: "1928", y: 1 },
+                  { x: "1929", y: 1 },
+                  { x: "1930", y: 0 },
+                  { x: "1931", y: 1 },
+                  { x: "1932", y: 0 },
+                  { x: "1933", y: 0 },
+                  { x: "1934", y: 0 },
+                  { x: "1935", y: 0 },
+                  { x: "1936", y: 0 },
+                  { x: "1937", y: 0 },
+                  { x: "1938", y: 0 },
+                  { x: "1939", y: 1 },
+                  { x: "1940", y: 0 },
+                  { x: "1941", y: 0 },
+                  { x: "1942", y: 1 },
+                  { x: "1943", y: 1 },
+                  { x: "1944", y: 0 },
+                  { x: "1945", y: 0 },
+                  { x: "1946", y: 1 },
+                  { x: "1947", y: 0 },
+                  { x: "1948", y: 1 },
+                  { x: "1949", y: 0 },
+                  { x: "1950", y: 1 },
+                  { x: "1951", y: 0 },
+                  { x: "1952", y: 0 },
+                  { x: "1953", y: 2 },
+                  { x: "1954", y: 2 },
+                  { x: "1955", y: 1 },
+                  { x: "1956", y: 0 },
+                  { x: "1957", y: 4 },
+                  { x: "1958", y: 7 },
+                  { x: "1959", y: 4 },
+                  { x: "1960", y: 3 },
+                  { x: "1961", y: 3 },
+                  { x: "1962", y: 2 },
+                  { x: "1963", y: 2 },
+                  { x: "1964", y: 4 },
+                  { x: "1965", y: 3 },
+                  { x: "1966", y: 10 },
+                  { x: "1967", y: 4 },
+                  { x: "1968", y: 2 },
+                  { x: "1969", y: 4 },
+                  { x: "1970", y: 5 },
+                  { x: "1971", y: 5 },
+                  { x: "1972", y: 8 },
+                  { x: "1973", y: 7 },
+                  { x: "1974", y: 5 },
+                  { x: "1975", y: 3 },
+                  { x: "1976", y: 3 },
+                  { x: "1977", y: 2 },
+                  { x: "1978", y: 2 },
+                  { x: "1979", y: 3 },
+                  { x: "1980", y: 1 },
+                  { x: "1981", y: 0 },
+                  { x: "1982", y: 1 },
+                  { x: "1983", y: 2 },
+                  { x: "1984", y: 7 },
+                  { x: "1985", y: 4 },
+                  { x: "1986", y: 2 },
+                  { x: "1987", y: 7 },
+                  { x: "1988", y: 0 },
+                  { x: "1989", y: 5 },
+                  { x: "1990", y: 6 },
+                  { x: "1991", y: 3 },
+                  { x: "1992", y: 2 },
+                  { x: "1993", y: 5 },
+                  { x: "1994", y: 6 },
+                  { x: "1995", y: 6 },
+                  { x: "1996", y: 3 },
+                  { x: "1997", y: 1 },
+                  { x: "1998", y: 5 },
+                  { x: "1999", y: 5 },
+                  { x: "2000", y: 5 },
+                  { x: "2001", y: 4 },
+                  { x: "2002", y: 4 },
+                  { x: "2003", y: 2 },
+                  { x: "2004", y: 6 },
+                  { x: "2005", y: 0 },
+                  { x: "2006", y: 2 },
+                  { x: "2007", y: 4 },
+                  { x: "2008", y: 1 },
+                  { x: "2009", y: 2 },
+                  { x: "2010", y: 2 },
+                  { x: "2011", y: 1 },
+                  { x: "2012", y: 0 },
+                  { x: "2013", y: 2 },
+                  { x: "2014", y: 3 },
+                  { x: "2015", y: 4 },
+                  { x: "2016", y: 3 },
+                  { x: "2017", y: 2 },
+                  { x: "2018", y: 0 },
+                  { x: "2019", y: 3 },
+                  { x: "2020", y: 3 },
+                  { x: "2021", y: 3 },
+                  { x: "2022", y: 0 },
+                  { x: "2023", y: 1 },
+                ],
+              },
+            ],
+            chart: {
+              type: "bar",
+              height: "320px",
+              fontFamily: "Inter, sans-serif",
+              toolbar: {
+                show: false,
+              },
+            },
+            plotOptions: {
+              bar: {
+                horizontal: false,
+                columnWidth: "70%",
+                borderRadiusApplication: "end",
+                borderRadius: 8,
+              },
+            },
+            tooltip: {
+              shared: true,
+              intersect: false,
+              style: {
+                fontFamily: "Inter, sans-serif",
+              },
+            },
+            states: {
+              hover: {
+                filter: {
+                  type: "darken",
+                  value: 1,
+                },
+              },
+            },
+            stroke: {
+              show: true,
+              width: 0,
+              colors: ["transparent"],
+            },
+            grid: {
+              show: false,
+              strokeDashArray: 4,
+              padding: {
+                left: 2,
+                right: 2,
+                top: -14
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+            legend: {
+              show: false,
+            },
+            xaxis: {
+              tickAmount: 3,
+              floating: false,
+              labels: {
+                show: true,
+                style: {
+                  fontFamily: "Inter, sans-serif",
+                  cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
+                }
+              },
+              axisBorder: {
+                show: false,
+              },
+              axisTicks: {
+                show: false,
+              },
+            },
+            yaxis: {
+              show: false,
+            },
+            fill: {
+              opacity: 1,
+            },
+          }
+  
+          if(document.getElementById("column-chart") && typeof ApexCharts !== 'undefined') {
+            const chart = new ApexCharts(document.getElementById("column-chart"), options);
+            chart.render();
+          }
+    });
+  </script>
