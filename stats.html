@@ -14,7 +14,7 @@ pagination:
           </svg>
         </div>
         <div>
-          <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">245 ({{site.posts | size }})</h5>
+          <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">{{site.posts | size }}</h5>
           <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Movies seen</p>
         </div>
       </div>
@@ -36,6 +36,7 @@ pagination:
 {% assign imdb = 0 %}
 {% assign oscar = 0 %}
 {% assign cannes = 0 %}
+{% assign sas = 0 %}
 {% for post in site.posts %}
    {% if post.imdb250 %}
     {% assign imdb = imdb | plus: 1 %}
@@ -46,11 +47,15 @@ pagination:
   {% if post.cannes %}
     {% assign cannes = cannes | plus: 1 %}
    {% endif %}
+   {% if post.sas %}
+   {% assign sas = sas | plus: 1 %}
+ {% endif %}
 {% endfor %}
 <script>
   let imdb = "{{imdb}}"
   let oscar = "{{oscar}}"
   let cannes = "{{cannes}}"
+  let sas = "{{sas}}"
   window.addEventListener("load", function() {
     const getChartOptions = (label, val,max) => {
         return {
@@ -77,7 +82,7 @@ pagination:
         chart.render();
         chart = new ApexCharts(document.querySelector("#radial-chart-cannes"), getChartOptions("Palma d'oro", cannes, 96));
         chart.render();
-        chart = new ApexCharts(document.querySelector("#radial-chart-imdb4"), getChartOptions());
+        chart = new ApexCharts(document.querySelector("#radial-chart-sas"), getChartOptions("Sight&Sound Top 250", sas, 250));
         chart.render();
         chart = new ApexCharts(document.querySelector("#radial-chart-imdb5"), getChartOptions());
         chart.render();
@@ -143,7 +148,7 @@ pagination:
                   { x: "1968", y: 2 },
                   { x: "1969", y: 4 },
                   { x: "1970", y: 5 },
-                  { x: "1971", y: 5 },
+                  { x: "1971", y: 6 },
                   { x: "1972", y: 8 },
                   { x: "1973", y: 7 },
                   { x: "1974", y: 5 },
