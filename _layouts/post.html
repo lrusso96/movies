@@ -3,9 +3,13 @@ layout: default
 ---
 <div class="my-4 lg:my-12 mx-auto max-w-screen-lg prose dark:prose-invert prose-sm sm:prose-xl prose-slate prose-a:text-blue-600 hover:prose-a:text-blue-500">
     {% assign director = site.directors | where: 'name', page.director | first %}
+    {% if director %}
     <a class="no-underline " href="{{director.url}}">
         <h4 class="text-center text-gray-700 dark:text-teal-500 hover:text-gray-400 dark:hover:text-gray-400">{{director.name}}</h4>
     </a>
+    {% else %}
+    <h4 class="text-center text-gray-700 dark:text-teal-500">{{page.director}}</h4>
+    {% endif %}
     <h1 class="text-center">{{page.title}} · {{page.year}}</h1>
     <!-- <p class="text-center">{{page.date | date: "%-d %B %Y"}}</h1> -->
 
