@@ -1,7 +1,7 @@
 <div class="group relative flex flex-row h-auto min-w-full rounded-lg shadow">
 
     <a href="{{include.post.url}}" class="overflow-hidden grow">
-      <img class="min-w-full transition duration-300 ease-in-out group-hover:scale-110 brightness-[0.7] group-hover:brightness-50" src="{{include.post.cover}}" alt="" />
+      <img loading="lazy" class="min-w-full transition duration-300 ease-in-out group-hover:scale-110 brightness-[0.7] group-hover:brightness-50" src="{{include.post.cover}}" alt="" />
       <div class="absolute bottom-0 left-0 p-6 xl:p-8 2xl:p-12 ">
         {% if include.main == true %}
         <h1 class="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl font-extrabold uppercase group-hover:text-amber-300 text-ellipsis"> {{ include.post.title }}</h1>
