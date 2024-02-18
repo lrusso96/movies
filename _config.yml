@@ -2,9 +2,6 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
 title: "" # the name of your site, e.g. ACME Corp.
 
-gems:
-  - jekyll-paginate-v2
-
 plugins:
   - jekyll-postcss
 
@@ -15,13 +12,3 @@ collections:
   directors:
     output: true
     permalink: /:collection/:name
-
-# Pagination Settings
-pagination:
-  enabled: true
-  per_page: 30
-  permalink: '/page/:num/'
-  title: ' - page :num'
-  limit: 0
-  sort_field: 'date'
-  sort_reverse: true
