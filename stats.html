@@ -33,17 +33,20 @@ pagination:
 
 </div>
 
+
 {% assign imdb = 0 %}
-{% assign oscar = 0 %}
+{% assign oscar_bm = 0 %}
 {% assign cannes = 0 %}
 {% assign sas = 0 %}
 {% for post in site.posts %}
-   {% if post.imdb250 %}
+    {% assign v = site.data.imdb250 | where: 'id', post.imdb_id %}
+    {% if v.size > 0  %}
     {% assign imdb = imdb | plus: 1 %}
-  {% endif %}
-  {% if post.oscar %}
-    {% assign oscar = oscar | plus: 1 %}
-   {% endif %}
+    {% endif %}
+    {% assign v = site.data.oscar_best_movies | where: 'id', post.imdb_id %}
+    {% if v.size > 0  %}
+    {% assign oscar_bm = oscar_bm | plus: 1 %}
+    {% endif %}
   {% if post.cannes %}
     {% assign cannes = cannes | plus: 1 %}
    {% endif %}
@@ -53,7 +56,7 @@ pagination:
 {% endfor %}
 <script>
   let imdb = "{{imdb}}"
-  let oscar = "{{oscar}}"
+  let oscar = "{{oscar_bm}}"
   let cannes = "{{cannes}}"
   let sas = "{{sas}}"
   window.addEventListener("load", function() {
@@ -102,6 +105,11 @@ pagination:
                 name: "Movies",
                 color: "#1A56DB",
                 data: [
+                  { x: "1920", y: 0 },
+                  { x: "1921", y: 0 },
+                  { x: "1922", y: 0 },
+                  { x: "1923", y: 0 },
+                  { x: "1924", y: 0 },
                   { x: "1925", y: 1 },
                   { x: "1926", y: 1 },
                   { x: "1927", y: 2 },
@@ -137,7 +145,7 @@ pagination:
                   { x: "1957", y: 4 },
                   { x: "1958", y: 7 },
                   { x: "1959", y: 5 },
-                  { x: "1960", y: 4 },
+                  { x: "1960", y: 5 },
                   { x: "1961", y: 5 },
                   { x: "1962", y: 2 },
                   { x: "1963", y: 2 },
@@ -148,13 +156,13 @@ pagination:
                   { x: "1968", y: 3 },
                   { x: "1969", y: 4 },
                   { x: "1970", y: 7 },
-                  { x: "1971", y: 6 },
+                  { x: "1971", y: 7 },
                   { x: "1972", y: 9 },
                   { x: "1973", y: 7 },
                   { x: "1974", y: 5 },
                   { x: "1975", y: 4 },
                   { x: "1976", y: 5 },
-                  { x: "1977", y: 3 },
+                  { x: "1977", y: 4 },
                   { x: "1978", y: 3 },
                   { x: "1979", y: 3 },
                   { x: "1980", y: 3 },
@@ -244,8 +252,8 @@ pagination:
               show: false,
               strokeDashArray: 4,
               padding: {
-                left: 2,
-                right: 2,
+                left: 20,
+                right: 20,
                 top: -14
               },
             },
@@ -256,7 +264,7 @@ pagination:
               show: false,
             },
             xaxis: {
-              tickAmount: 3,
+              tickAmount: 9,
               floating: false,
               labels: {
                 show: true,

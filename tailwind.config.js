@@ -8,11 +8,6 @@ module.exports = {
     './*.md',
     './*.html',
   ],
-  theme: {
-    theme: {
-      extend: {},
-    },
-  },
   plugins: [
     require('@tailwindcss/typography'),
   ]
