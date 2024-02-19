@@ -5,5 +5,4 @@ director: Ridley Scott
 year: 1989
 cover: https://images.mubicdn.net/images/film/186/cache-47462-1543579214/image-w1280.jpg
 imdb_id: tt0083658
-sas: true
 ---

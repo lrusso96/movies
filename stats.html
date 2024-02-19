@@ -25,8 +25,8 @@ pagination:
   <!-- Radial Chart -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:mx-12">
     <div class="lg:py-6" id="radial-chart-imdb"></div>
-    <div class="lg:py-6" id="radial-chart-oscar"></div>
-    <div class="lg:py-6" id="radial-chart-sas"></div>
+    <div class="lg:py-6" id="radial-chart-oscar-bm"></div>
+    <div class="lg:py-6" id="radial-chart-sas-250"></div>
     <div class="lg:py-6" id="radial-chart-cannes"></div>
     <div class="lg:py-6" id="radial-chart-afi"></div>
   </div>
@@ -36,8 +36,10 @@ pagination:
 
 {% assign imdb = 0 %}
 {% assign oscar_bm = 0 %}
+{% assign oscar_bm_tot = site.data.oscar_best_movies.size %}
 {% assign cannes = 0 %}
-{% assign sas = 0 %}
+{% assign sas_250 = 0 %}
+{% assign sas_250_tot = site.data.sas250.size %}
 {% for post in site.posts %}
     {% assign v = site.data.imdb250 | where: 'id', post.imdb_id %}
     {% if v.size > 0  %}
@@ -47,20 +49,23 @@ pagination:
     {% if v.size > 0  %}
     {% assign oscar_bm = oscar_bm | plus: 1 %}
     {% endif %}
-  {% if post.cannes %}
+    {% assign v = site.data.sas250 | where: 'id', post.imdb_id %}
+    {% if v.size > 0  %}
+    {% assign sas_250 = sas_250 | plus: 1 %}
+    {% endif %}
+    {% if post.cannes %}
     {% assign cannes = cannes | plus: 1 %}
    {% endif %}
-   {% if post.sas %}
-   {% assign sas = sas | plus: 1 %}
- {% endif %}
 {% endfor %}
 <script>
   let imdb = "{{imdb}}"
-  let oscar = "{{oscar_bm}}"
+  let oscar_bm = "{{oscar_bm}}"
+  let oscar_bm_tot = "{{oscar_bm_tot}}"
   let cannes = "{{cannes}}"
-  let sas = "{{sas}}"
+  let sas_250 = "{{sas_250}}"
+  let sas_250_tot = "{{sas_250_tot}}"
   window.addEventListener("load", function() {
-    const getChartOptions = (label, val,max) => {
+    const getChartOptions = (label, val, max) => {
         return {
           series: [(100* (val / max)).toFixed(1)],
           chart: {
@@ -81,11 +86,11 @@ pagination:
       if (document.getElementById("radial-chart-imdb") && typeof ApexCharts !== 'undefined') {
         var chart = new ApexCharts(document.querySelector("#radial-chart-imdb"), getChartOptions('IMDb Top 250', imdb, 250));
         chart.render();
-        chart = new ApexCharts(document.querySelector("#radial-chart-oscar"), getChartOptions('Oscar al miglior film', oscar, 95));
+        chart = new ApexCharts(document.querySelector("#radial-chart-oscar-bm"), getChartOptions('Oscar al miglior film', oscar_bm, oscar_bm_tot));
         chart.render();
         chart = new ApexCharts(document.querySelector("#radial-chart-cannes"), getChartOptions("Palma d'oro", cannes, 96));
         chart.render();
-        chart = new ApexCharts(document.querySelector("#radial-chart-sas"), getChartOptions("Sight&Sound Top 250", sas, 250));
+        chart = new ApexCharts(document.querySelector("#radial-chart-sas-250"), getChartOptions("Sight&Sound Top 250", sas_250, sas_250_tot));
         chart.render();
         chart = new ApexCharts(document.querySelector("#radial-chart-imdb5"), getChartOptions());
         chart.render();

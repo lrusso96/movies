@@ -5,5 +5,4 @@ director: Sergio Leone
 year: 1968
 cover: https://images.mubicdn.net/images/film/166/cache-8008-1676564889/image-w1280.jpg
 imdb_id: tt0064116
-sas: true
 ---
