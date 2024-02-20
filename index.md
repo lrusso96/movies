@@ -1,10 +1,4 @@
 ---
 layout: home
-title: "Happy Jekylling!"
-pagination: 
-  enabled: true
+title: "Film"
 ---
-
-## You're ready to go!
-
-Start developing your Jekyll website.

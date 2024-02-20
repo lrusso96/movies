@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Stats
+title: Statistiche
 pagination: 
   enabled: false
 ---
@@ -20,10 +20,12 @@ pagination:
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:mx-24">
   <div class="lg:py-2" id="radial-chart-imdb"></div>
+  <div class="lg:py-2" id="radial-chart-afi"></div>
+  <div class="lg:py-2" id="radial-chart-sas-100"></div>
+  <div class="lg:py-2" id="radial-chart-afi-all-time"></div>
   <div class="lg:py-2" id="radial-chart-oscar-bm"></div>
   <div class="lg:py-2" id="radial-chart-sas-250"></div>
   <div class="lg:py-2" id="radial-chart-cannes"></div>
-  <div class="lg:py-2" id="radial-chart-afi"></div>
 </div>
 <!-- <div class="inline-flex items-center justify-center w-full mt-2 lg:mt-2">
   <hr class="w-full h-px mx-4 lg:mx-32 my-2 lg:my-8 bg-gray-200 border-0">
@@ -39,6 +41,12 @@ pagination:
 {% assign cannes = 0 %}
 {% assign sas_250 = 0 %}
 {% assign sas_250_tot = site.data.sas250.size %}
+{% assign sas_100 = 0 %}
+{% assign sas_100_tot = site.data.sas100.size %}
+{% assign afi = 0 %}
+{% assign afi_tot = site.data.afi_all_time.size %}
+{% assign afi_at = 0 %}
+{% assign afi_at_tot = site.data.afi_all_time.size %}
 {% for post in site.posts %}
     {% assign v = site.data.imdb250 | where: 'id', post.imdb_id %}
     {% if v.size > 0  %}
@@ -52,21 +60,40 @@ pagination:
     {% if v.size > 0  %}
     {% assign sas_250 = sas_250 | plus: 1 %}
     {% endif %}
+    {% assign v = site.data.sas100 | where: 'id', post.imdb_id %}
+    {% if v.size > 0  %}
+    {% assign sas_100 = sas_100 | plus: 1 %}
+    {% endif %}
+    {% assign v = site.data.afi | where: 'id', post.imdb_id %}
+    {% if v.size > 0  %}
+    {% assign afi = afi | plus: 1 %}
+    {% endif %}
+    {% assign v = site.data.afi_all_time | where: 'id', post.imdb_id %}
+    {% if v.size > 0  %}
+    {% assign afi_at = afi_at | plus: 1 %}
+    {% endif %}
     {% if post.cannes %}
     {% assign cannes = cannes | plus: 1 %}
    {% endif %}
 {% endfor %}
 <script>
   let imdb = "{{imdb}}"
+  let afi = "{{afi}}"
+  let afi_at = "{{afi_at}}"
+  let afi_at_tot = "{{afi_at_tot}}"
   let oscar_bm = "{{oscar_bm}}"
   let oscar_bm_tot = "{{oscar_bm_tot}}"
   let cannes = "{{cannes}}"
   let sas_250 = "{{sas_250}}"
   let sas_250_tot = "{{sas_250_tot}}"
+  let sas_100 = "{{sas_100}}"
+  let sas_100_tot = "{{sas_100_tot}}"
   window.addEventListener("load", function() {
     const getChartOptions = (label, val, max) => {
+      let offsetY = label.length == 1 ? -10 : -25
+      console.log(offsetY)
         return {
-          series:[(100* (val / max)).toFixed(1)],
+          series:[parseFloat((100* (val / max)).toFixed(1))],
           colors: ['#FCD34D'],
           chart: {
           height: 300,
@@ -78,7 +105,11 @@ pagination:
               size: '70%',
             },
             dataLabels:{
+              name: {
+                offsetY: offsetY
+              },
               value: {
+                offsetY: 25,
                 show: true,
                 fontSize: '24px',
                 color: 'white',
@@ -91,15 +122,19 @@ pagination:
     }
       
       if (document.getElementById("radial-chart-imdb") && typeof ApexCharts !== 'undefined') {
-        var chart = new ApexCharts(document.querySelector("#radial-chart-imdb"), getChartOptions('IMDb Top 250', imdb, 250));
+        var chart = new ApexCharts(document.querySelector("#radial-chart-imdb"), getChartOptions(['IMDb Top 250', '(2023)'], imdb, 250));
         chart.render();
-        chart = new ApexCharts(document.querySelector("#radial-chart-oscar-bm"), getChartOptions('Oscar al miglior film', oscar_bm, oscar_bm_tot));
+        chart = new ApexCharts(document.querySelector("#radial-chart-oscar-bm"), getChartOptions(['Premio Oscar', 'Miglior film'], oscar_bm, oscar_bm_tot));
         chart.render();
-        chart = new ApexCharts(document.querySelector("#radial-chart-cannes"), getChartOptions("Palma d'oro", cannes, 96));
+        chart = new ApexCharts(document.querySelector("#radial-chart-cannes"), getChartOptions(["Palma d'oro", "Cannes"], cannes, 96));
         chart.render();
-        chart = new ApexCharts(document.querySelector("#radial-chart-sas-250"), getChartOptions("Sight&Sound Top 250", sas_250, sas_250_tot));
+        chart = new ApexCharts(document.querySelector("#radial-chart-sas-250"), getChartOptions(["Sight & Sound", "Critics' Top 250"], sas_250, sas_250_tot));
         chart.render();
-        chart = new ApexCharts(document.querySelector("#radial-chart-afi"), getChartOptions("AFI 100", 0, 100));
+        chart = new ApexCharts(document.querySelector("#radial-chart-sas-100"), getChartOptions(["Sight & Sound", "Directors' Top 100"], sas_100, sas_100_tot));
+        chart.render();
+        chart = new ApexCharts(document.querySelector("#radial-chart-afi"), getChartOptions(["AFI Top 100"], afi, 100));
+        chart.render();
+        chart = new ApexCharts(document.querySelector("#radial-chart-afi-all-time"), getChartOptions(["AFI Top 100", "(All-time)"], afi_at, afi_at_tot));
         chart.render();
       }
   });
@@ -193,7 +228,7 @@ pagination:
                   { x: "1994", y: 9 },
                   { x: "1995", y: 6 },
                   { x: "1996", y: 3 },
-                  { x: "1997", y: 4 },
+                  { x: "1997", y: 5 },
                   { x: "1998", y: 6 },
                   { x: "1999", y: 6 },
                   { x: "2000", y: 5 },

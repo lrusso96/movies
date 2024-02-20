@@ -4,6 +4,7 @@ title: Viridiana
 director: Luis Buñuel
 year: 1961
 cover: https://images.mubicdn.net/images/film/373/cache-32564-1552496889/image-w1280.jpg
+imdb_id: tt0055601
 cannes: true
 ---
 >Le lutin vient : Perrette échevelée<br/>
