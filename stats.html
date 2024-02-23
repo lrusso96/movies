@@ -25,7 +25,7 @@ pagination:
 
 <div class="inline-flex items-center justify-center w-full">
   <hr class="w-full h-px mx-4 lg:mx-32 my-2 lg:my-8 bg-gray-200 border-0">
-  <span class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-[#14171C] left-1/2 text-white">Per anno</span>
+  <span class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-[#14171C] left-1/2 text-white">Film per anno</span>
 </div>
 
 <div class="w-full px-4 lg:px-32">
@@ -47,7 +47,7 @@ pagination:
 </div>
 <div class="inline-flex items-center justify-center w-full mt-2 lg:mt-2">
   <hr class="w-full h-px mx-4 lg:mx-32 my-2 lg:my-8 bg-gray-200 border-0">
-  <span class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-[#14171C] left-1/2 text-white">Paesi</span>
+  <span class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-[#14171C] left-1/2 text-white">Nazionalità dei registi</span>
 </div>
 <div class="grid grid-cols-1 mx-4 lg:mx-32 mb-16 overflow-hidden" id="regions_div"></div>
 </div>
@@ -109,7 +109,6 @@ pagination:
   window.addEventListener("load", function() {
     const getChartOptions = (label, val, max) => {
       let offsetY = label.length == 1 ? -10 : -25
-      console.log(offsetY)
         return {
           series:[parseFloat((100* (val / max)).toFixed(1))],
           colors: ['#FCD34D'],
@@ -166,7 +165,7 @@ pagination:
       const options = {
             series: [
               {
-                name: "Movies",
+                name: "Film",
                 color: "#FCD34D",
                 data: [
                   { x: "1920", y: 0 },
@@ -360,25 +359,34 @@ pagination:
   </script>
     <script type="text/javascript">
       google.charts.load('current', {
-        'packages':['geochart']
+        'packages':['geochart'],
       });
 
       google.charts.setOnLoadCallback(drawRegionsMap);
 
       function drawRegionsMap() {
+        let locale_countries = eval(`{{site.data.locale_countries | jsonify}}`)
         let countries = eval(`{{countries | jsonify}}`)
-        countries = countries.map(elem => ([elem.name, elem.items.length]))
-        let regions = [['Country', 'Film']]
+        countries = countries.map(function(elem) {
+          let country = elem.name
+          let locale = locale_countries.find(elem => elem.en == country) 
+          if (locale){
+            return [{v: country, f: locale.it},{v: Math.log(elem.items.length), f: elem.items.length}]
+          }
+          return [elem.name, {v: Math.log(elem.items.length), f: elem.items.length}]
+        })
+        
+        let regions = [['Paese', 'Registi']]
         for (index = 0; index < countries.length; index++) {
-          if (countries[index][0].length > 0)
             regions.push(countries[index]);
       }
-        console.log(regions)
         var data = google.visualization.arrayToDataTable(regions);
 
         var options = {
           backgroundColor: '#14171C',
-          colorAxis: {colors: ['white', '#fde68a', '#FCD34D', '#fbbf24', '#f59e0b']},
+          colorAxis: {colors: ['#fef3c7', '#fde68a', '#FCD34D', '#fbbf24', '#f59e0b']},
+          legend:'none',
+          //region: '150'
         };
 
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
