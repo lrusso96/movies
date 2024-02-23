@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<div class="my-4 lg:my-12 mx-auto max-w-screen-lg prose prose-invert prose-sm sm:prose-xl prose-slate prose-a:text-blue-600 hover:prose-a:text-blue-500">
+<div class="my-4 lg:my-12 mx-4 lg:mx-auto max-w-screen-lg prose !prose-invert prose-xl sm:prose-2xl prose-slate prose-a:text-white hover:prose-a:text-amber-300 prose-a:no-underline">
     {% assign director = site.directors | where: 'name', page.director | first %}
     {% if director %}
     <a class="no-underline " href="{{director.url}}">
