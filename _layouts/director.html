@@ -2,13 +2,13 @@
 layout: default
 ---
 <div class="my-4 lg:my-12 mx-auto max-w-screen-lg prose !prose-invert prose-xl sm:prose-2xl prose-slate prose-a:text-white hover:prose-a:text-amber-300 prose-a:no-underline">
-    <h1 class="text-center">{{page.name}}</h1>
+    <h1 class="text-center px-2">{{page.name}}</h1>
 
-    <div class="flex flex-row gap-4">
-        <div class="flex justify-center basis-full sm:basis-1/3">
-            <img class="max-h-96" src="{{page.cover}}"></img>
+    <div class="flex flex-row flex-wrap">
+        <div class="flex justify-center basis-full md:basis-1/3 px-4">
+            <img class="min-w-full md:min-w-0 md:max-h-96" src="{{page.cover}}"></img>
         </div>
-        <div class="basis-full sm:basis-2/3">
+        <div class="basis-full md:basis-2/3 px-4">
             {{content}}
         </div>
     </div>
