@@ -34,9 +34,9 @@ La chiave di lettura ci viene suggerita sul finale dalle parole disincantate del
 Il sergente si volta a guardare il mare, in attesa di qualcosa, o forse di qualcuno. O forse no.
 
 ## Correlati
-Per il tema del naufragio: il film Travolti da un insolito destino di Wertmüller.
-Per un approccio maldestro, ma sincero alla poesia, mi ricorda Il postino (anche in quel caso l'ambientazione è un'isola)
+Per il tema del naufragio: il film *[Travolti da un insolito destino nell'azzurro mare d'agosto]({% post_url 2022-2/2022-08-15-insolito-destino %})* di Wertmüller.
+Per un approccio maldestro, ma sincero alla poesia, mi ricorda *[Il postino]({% post_url other/1970-01-01-il-postino %})* (anche in quel caso l'ambientazione è un'isola).
 
 Per ulteriori collegamenti, più o meno concreti, solo per citarne alcuni:
-[Cristo si è fermato a Eboli]({% post_url 2022-2/2022-07-01-cristo-eboli %}), [Il dottor Živago]({% post_url 2022-2/2022-07-15-zivago %}), [Armata Brancaleone]({% post_url 2022-1/2022-06-23-armata-brancaleone %}), [Uomini contro]({% post_url 2022-1/2022-02-12-uomini-contro %}).
+*[Cristo si è fermato a Eboli]({% post_url 2022-2/2022-07-01-cristo-eboli %})*, *[Il dottor Živago]({% post_url 2022-2/2022-07-15-zivago %})*, *[Armata Brancaleone]({% post_url 2022-1/2022-06-23-armata-brancaleone %})*, *[Uomini contro]({% post_url 2022-1/2022-02-12-uomini-contro %})*.
 
