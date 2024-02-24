@@ -43,6 +43,7 @@ pagination:
   <div class="lg:py-2" id="radial-chart-afi-all-time"></div>
   <div class="lg:py-2" id="radial-chart-oscar-bm"></div>
   <div class="lg:py-2" id="radial-chart-sas-250"></div>
+  <div class="lg:py-2" id="radial-chart-oscar-foreign"></div>
   <div class="lg:py-2" id="radial-chart-cannes"></div>
 </div>
 <div class="inline-flex items-center justify-center w-full mt-2 lg:mt-2">
@@ -56,6 +57,8 @@ pagination:
 {% assign imdb = 0 %}
 {% assign oscar_bm = 0 %}
 {% assign oscar_bm_tot = site.data.oscar_best_movies.size %}
+{% assign oscar_foreign = 0 %}
+{% assign oscar_foreign_tot = site.data.oscar_foreign.size %}
 {% assign cannes = 0 %}
 {% assign sas_250 = 0 %}
 {% assign sas_250_tot = site.data.sas250.size %}
@@ -73,6 +76,10 @@ pagination:
     {% assign v = site.data.oscar_best_movies | where: 'id', post.imdb_id %}
     {% if v.size > 0  %}
     {% assign oscar_bm = oscar_bm | plus: 1 %}
+    {% endif %}
+    {% assign v = site.data.oscar_foreign | where: 'id', post.imdb_id %}
+    {% if v.size > 0  %}
+    {% assign oscar_foreign = oscar_foreign | plus: 1 %}
     {% endif %}
     {% assign v = site.data.sas250 | where: 'id', post.imdb_id %}
     {% if v.size > 0  %}
@@ -101,6 +108,8 @@ pagination:
   let afi_at_tot = "{{afi_at_tot}}"
   let oscar_bm = "{{oscar_bm}}"
   let oscar_bm_tot = "{{oscar_bm_tot}}"
+  let oscar_foreign = "{{oscar_foreign}}"
+  let oscar_foreign_tot = "{{oscar_foreign_tot}}"
   let cannes = "{{cannes}}"
   let sas_250 = "{{sas_250}}"
   let sas_250_tot = "{{sas_250_tot}}"
@@ -142,6 +151,9 @@ pagination:
         var chart = new ApexCharts(document.querySelector("#radial-chart-imdb"), getChartOptions(['IMDb Top 250', '(2023)'], imdb, 250));
         chart.render();
         chart = new ApexCharts(document.querySelector("#radial-chart-oscar-bm"), getChartOptions(['Premio Oscar', 'Miglior film'], oscar_bm, oscar_bm_tot));
+        chart.render();
+        chart = new ApexCharts(document.querySelector("#radial-chart-cannes"), getChartOptions(["Palma d'oro", "Cannes"], cannes, 96));
+        chart = new ApexCharts(document.querySelector("#radial-chart-oscar-foreign"), getChartOptions(['Premio Oscar', 'Film internazionale'], oscar_foreign, oscar_foreign_tot));
         chart.render();
         chart = new ApexCharts(document.querySelector("#radial-chart-cannes"), getChartOptions(["Palma d'oro", "Cannes"], cannes, 96));
         chart.render();

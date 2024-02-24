@@ -4,6 +4,7 @@ title:  "Mediterraneo"
 director:  Gabriele Salvatores
 year: 1991
 cover: /assets/images/mediterraneo.jpg
+imdb_id: tt0102426
 ---
 > Quale è la cosa più bella<br/>
 sopra la terra bruna? Uno dice «una torma<br/>
