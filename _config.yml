@@ -1,6 +1,6 @@
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "" # the subpath of your site, e.g. /blog
-title: "Film" # the name of your site, e.g. ACME Corp.
+url: "https://lrusso96.github.io"
+baseurl: "/movies"
+title: "Film"
 
 plugins:
   - jekyll-postcss
