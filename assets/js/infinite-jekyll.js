@@ -4,7 +4,7 @@ $(function() {
         isFetchingPosts = false,
         shouldFetchPosts = true;
   
-    var postsToLoad = $(".tag-master:not(.hidden) .post-list").children().length, loadNewPostsThreshold = 10;
+    var postsToLoad = $(".tag-master:not(.hidden) .post-list").children().length, loadNewPostsThreshold = 200;
 
     $.getJSON('/movies/all-posts.json', function(data) {
       posts = data["posts"];
