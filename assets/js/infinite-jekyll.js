@@ -6,7 +6,7 @@ $(function() {
   
     var postsToLoad = $(".tag-master:not(.hidden) .post-list").children().length, loadNewPostsThreshold = 10;
 
-    $.getJSON('/all-posts.json', function(data) {
+    $.getJSON('/movies/all-posts.json', function(data) {
       posts = data["posts"];
       // If there aren't any more posts available to load than already visible, disable fetching
       if (posts.length <= postsToLoad)

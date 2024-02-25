@@ -8,8 +8,12 @@ layout: null
     "title": "{{ post.title }}",
     "director": "{{post.director}}",
     "year": "{{post.year}}",
-    "cover": "{{post.cover}}" ,
-    "url": "{{post.url}}"
+    {% assign cover = post.cover %}
+    {% if post.local_cover %}
+    {% assign cover = site.url | append: site.baseurl | append: '/assets/images/' | append: post.cover %}
+    {% endif %}
+    "cover": "{{cover}}" ,
+    "url": "{{site.url | append: site.baseurl | append: post.url}}"
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}
   ]

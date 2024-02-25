@@ -3,7 +3,8 @@ layout: post
 title: "Affare di cuore"
 director: Dušan Makavejev
 year: 1967
-cover: /assets/images/affare-di-cuore.jpg
+cover: affare-di-cuore.jpg
+local_cover: true
 ---
 Un film sulla sessualità, sulla scissione tra l'Io e il Noi.
 

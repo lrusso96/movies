@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="{{site.baseurl}}/assets/js/jquery-3.2.1.min.js"></script>
-    <script src="{{site.baseurl}}/assets/js/infinite-jekyll.js"></script>
+    <script src="{{ site.url | append: site.baseurl | append: '/assets/js/jquery-3.2.1.min.js' }}"></script>
+    <script src="{{ site.url | append: site.baseurl | append: '/assets/js/infinite-jekyll.js' }}"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}"> 
+    <link rel="stylesheet" href="{{ site.url | append: site.baseurl | append: '/assets/css/main.css' }}"> 
   </head>
   <body class="lg:max-w-screen-3xl bg-[#14171C]">
     <header class="md:mx-6 lg:mx-32 md:mb-2">
@@ -24,7 +24,7 @@
          "
        >
         <div>
-           <a href="{{site.url}}">
+           <a href="{{site.url | append: site.baseurl | append: '/'}}">
 
             <svg
             width="80%"
@@ -103,12 +103,12 @@
               
            >
              <li>
-               <a class="sm:p-4 py-2 block hover:text-amber-300" href="{{site.url}}"
+              <a class="sm:p-4 py-2 block hover:text-amber-300" href="{{site.url | append: site.baseurl | append: '/' }}"
                  >Home</a
                >
              </li>
              <li>
-               <a class="sm:p-4 py-2 block hover:text-amber-300" href="{{site.url}}/stats"
+               <a class="sm:p-4 py-2 block hover:text-amber-300" href="{{site.url | append: site.baseurl | append: '/stats'}}"
                  >Statistiche</a
                >
              </li>

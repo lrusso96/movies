@@ -3,7 +3,8 @@ layout: post
 title: L'amore il pomeriggio
 director: Éric Rohmer
 year: 1972
-cover: /assets/images/amore-il-pomeriggio.jpg
+cover: amore-il-pomeriggio.jpg
+local_cover: true
 ---
 
 In treno preferisco un libro al giornale.

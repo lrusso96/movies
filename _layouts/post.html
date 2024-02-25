@@ -1,10 +1,16 @@
 ---
 layout: default
 ---
+
+{% assign cover = page.cover %}
+{% if page.local_cover %}
+{% assign cover = site.url | append: site.baseurl | append: '/assets/images/' | append: page.cover %}
+{% endif %}
+
 <div class="my-4 lg:my-12 mx-4 lg:mx-auto max-w-screen-lg prose !prose-invert prose-xl sm:prose-2xl prose-slate prose-a:text-white hover:prose-a:text-amber-300 prose-a:no-underline">
     {% assign director = site.directors | where: 'name', page.director | first %}
     {% if director %}
-    <a class="no-underline " href="{{director.url}}">
+    <a class="no-underline " href="{{site.url | append: site.baseurl | append: director.url}}">
         <h4 class="text-center text-white hover:text-amber-300">{{director.name}}</h4>
     </a>
     {% else %}
@@ -12,7 +18,7 @@ layout: default
     {% endif %}
     <h1 class="text-center">{{page.title}} · {{page.year}}</h1>
     <div class="flex flex-row">
-        <img class="grow" src="{{page.cover}}">
+        <img class="grow" src="{{cover}}">
     </div>
     {{content}}
 </div>

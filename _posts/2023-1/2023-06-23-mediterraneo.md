@@ -3,7 +3,8 @@ layout: post
 title:  "Mediterraneo"
 director:  Gabriele Salvatores
 year: 1991
-cover: /assets/images/mediterraneo.jpg
+cover: mediterraneo.jpg
+local_cover: true
 imdb_id: tt0102426
 ---
 > Quale è la cosa più bella<br/>
