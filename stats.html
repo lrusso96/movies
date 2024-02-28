@@ -181,6 +181,15 @@ pagination:
         {%endfor%}
       ]
     `)
+    data.sort((a,b) => a.x - b.x)
+    let current = 1
+    for (i = data[0].x + 1; i < data[data.length - 1].x; i++) {
+      if (data[current].x > i ){
+        data.splice(current, 0, {x: i, y: 0})
+      }
+      current++
+    }
+
     // ApexCharts options and config
     window.addEventListener("load", function() {
 
