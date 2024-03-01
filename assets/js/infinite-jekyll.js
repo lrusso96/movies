@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   let shouldFetchPosts = true;
   let spinner = document.getElementById("infinite-spinner");
 
-  // If there's no spinner, it's not a page where posts should be fetched   
+  // If there's no spinner, it's not a page where posts should be fetched
   if (!spinner) shouldFetchPosts = false;
 
   let postList = document.getElementById("post-list");
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   let data = await fetch("/movies/all-posts.json");
   data = await data.json();
-  posts = data["posts"].slice(0, 50);
+  posts = data["posts"];
 
   // If there aren't any more posts available to load than already visible, disable fetching
   if (posts.length <= postsToLoad) disableFetching();
@@ -22,7 +22,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   window.addEventListener("scroll", function () {
     if (!shouldFetchPosts || isFetchingPosts) return;
 
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - loadNewPostsThreshold) {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.offsetHeight - loadNewPostsThreshold
+    ) {
       fetchPosts();
     }
   });
