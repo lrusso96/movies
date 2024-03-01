@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="{{ site.url | append: site.baseurl | append: '/assets/js/jquery-3.2.1.min.js' }}"></script>
     <script src="{{ site.url | append: site.baseurl | append: '/assets/js/infinite-jekyll.js' }}"></script>
@@ -112,6 +113,23 @@
                  >Statistiche</a
                >
              </li>
+          <li>
+            
+
+<form class="w-auto sm:mx-auto py-2">   
+  <div class="relative">
+      <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+          <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+          </svg>
+      </div>
+      <input type="search" id="autoComplete" class="w-full sm:w-48 sm:focus:w-64 lg:focus:w-80 p-4 ps-10 text-sm border rounded-lg bg-gray-50 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 transition-all duration-500 " placeholder="Search Mockups, Logos..." />
+  </div>
+</form>
+
+
+          </li>
+
            </ul>
          </div>
      </nav>
@@ -126,5 +144,79 @@
 button.addEventListener('click', () => {
   menu.classList.toggle('hidden');
 });
+
+  // The autoComplete.js Engine instance creator
+  const autoCompleteJS = new autoComplete({
+  data: {
+    src: async () => {
+      try {
+        // Loading placeholder text
+        document
+          .getElementById("autoComplete")
+          .setAttribute("placeholder", "Loading...");
+        // Fetch External Data Source
+        const source = await fetch(
+          "/movies/all-posts.json"
+        );
+        let data = await source.json();
+        data = data["posts"]
+        // Post Loading placeholder text
+        document
+          .getElementById("autoComplete")
+          .setAttribute("placeholder", autoCompleteJS.placeHolder);
+        // Returns Fetched data
+        return data;
+      } catch (error) {
+        return error;
+      }
+    },
+    keys: ["title", "director"],
+    cache: true,
+    filter: (list) => {
+      // Filter duplicates
+      // in case of multiple data keys usage
+      const filteredResults = Array.from(
+        new Set(list.map(obj => obj.value.title))
+      ).map(title => list.find(obj => obj.value.title === title));
+
+      return filteredResults;
+    },
+  },
+  placeHolder: "Cerca",
+  resultsList: {
+    noResults: true,
+    maxResults: 20,
+    tabSelect: true
+  },
+  resultItem: {
+    element: (item, data) => {
+      // Modify Results Item Style
+      item.style = "display: flex; justify-content: space-between;";
+      // Modify Results Item Content
+      item.innerHTML = `
+      <span style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+        ${data.key == "title" ? data.match : data.value.title}
+      </span>
+      <span style="font-size: 13px; font-weight: 100; text-transform: uppercase;">
+        ${data.key == "director" ? data.match : ""}
+      </span>`;
+    },
+    highlight: true
+  },
+  events: {
+    input: {
+      focus: () => {
+        if (autoCompleteJS.input.value.length) autoCompleteJS.start();
+      }
+    }
+  }
+});
+
+
+autoCompleteJS.input.addEventListener("selection", function (event) {
+  const selection = event.detail.selection.value["url"];
+  window.open(selection,"_self")
+});
+
   </script>
 </html>
