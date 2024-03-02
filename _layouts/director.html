@@ -21,7 +21,7 @@ layout: default
     </div>
 
     <h2> Film</h2>
-    <div class="grid grid-cols-1 gap-4">
+    <div class="grid grid-cols-1 gap-2">
         {% assign movies = site.posts | where:"director", page.name %}
         {%  for movie in movies %}
           {% include card.html post=movie director=false %}

@@ -7,10 +7,14 @@ cover: mediterraneo.jpg
 local_cover: true
 imdb_id: tt0102426
 ---
-> Quale è la cosa più bella<br/>
+<blockquote>
+<p class="font-['Special_Elite'] italic">
+Quale è la cosa più bella<br/>
 sopra la terra bruna? Uno dice «una torma<br/>
 di cavalieri», uno  «di fanti», uno «di navi».<br/>
-Io, «colei che si ama».
+Io, «colei che si ama».</p>
+<cite>(Saffo, <span class="italic">La cosa più bella</span>)</cite>
+</blockquote>
 
 È con i versi di Saffo che l'attendente Farina dichiara il suo amore alla prostituta Vasilissa, quando lei gli chiede perché si rifiuta di avere dei rapporti carnali.
 Il mondo della poesia greca, da Alcmane a Saffo, galeotto il tenente e il libro che dona al giovane soldato, irrompe sulla scena, ma lo fa in modo delicato.
@@ -23,8 +27,12 @@ Dai fratelli veneti che si uniscono in un rapporto  bucolico con la pastorella s
 3 anni che scorrono via come l'acqua cristallina dell'Egeo, in una terra edenica.
 E così, anche quando il profittatore turco giunge sulle coste e, nottetempo, deruba i nostri (anti)eroi, ecco che il sergente Lo Russo si lascia andare a una delle sue riflessioni a voce alta: un mondo nel quale ti sottraggono delle armi in cambio di un po' di fumo dell'oblio (l'oppio), non è forse un mondo più idilliaco, più giusto di quel che appare a prima vista?
 
-> C'è stato l'8 settembre!<br/>
-E che c'entra? Tutti gli anni c'è l'8 settembre, anche il 9, il 10...
+<blockquote>
+<p p class="font-['Special_Elite'] italic">
+- C'è stato l'8 settembre!<br/>
+- E che c'entra? Tutti gli anni c'è l'8 settembre, anche il 9, il 10...
+</p>
+</blockquote>
 
 Crolla l'Europa nazifascista. E in un certo senso crolla l'Europa tutta. È il disastro della guerra, che porta via la vita e distrugge. Ma i nostri non lo sanno. Giocano a pallone, si divertono, in un tempo sospeso in modo indeterminato.
 

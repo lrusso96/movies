@@ -6,7 +6,8 @@ year: 1972
 cover: amore-il-pomeriggio.jpg
 local_cover: true
 ---
-
+<blockquote>
+<p>
 In treno preferisco un libro al giornale.
 Il giornale non fissa la mia attenzione e non mi fa evadere.
 Il tragitto corrisponde alla quantità di lettura che gradisco.
@@ -71,3 +72,5 @@ Esitanti.
 Preoccupate.
 Accompagnate.
 Sole.
+</p>
+<blockquote>
