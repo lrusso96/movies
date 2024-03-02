@@ -22,7 +22,8 @@ module.exports = {
               border: 'none',
               p: {
                 marginBottom: "0.4rem",
-                position: 'relative'
+                position: 'relative',
+                fontStyle: "normal"
               },
               cite: {
                 fontStyle: "normal"
