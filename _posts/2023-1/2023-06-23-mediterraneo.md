@@ -8,11 +8,12 @@ local_cover: true
 imdb_id: tt0102426
 ---
 <blockquote>
-<p class="font-['Special_Elite']">
+<p class="font-['Special_Elite'] !not-italic">
 Quale è la cosa più bella<br/>
 sopra la terra bruna? Uno dice «una torma<br/>
 di cavalieri», uno  «di fanti», uno «di navi».<br/>
-Io, «colei che si ama».</p>
+Io, «colei che si ama».
+</p>
 <cite>(Saffo, <span class="italic">La cosa più bella</span>)</cite>
 </blockquote>
 
@@ -28,7 +29,7 @@ Dai fratelli veneti che si uniscono in un rapporto  bucolico con la pastorella s
 E così, anche quando il profittatore turco giunge sulle coste e, nottetempo, deruba i nostri (anti)eroi, ecco che il sergente Lo Russo si lascia andare a una delle sue riflessioni a voce alta: un mondo nel quale ti sottraggono delle armi in cambio di un po' di fumo dell'oblio (l'oppio), non è forse un mondo più idilliaco, più giusto di quel che appare a prima vista?
 
 <blockquote>
-<p p class="font-['Special_Elite'] italic">
+<p>
 - C'è stato l'8 settembre!<br/>
 - E che c'entra? Tutti gli anni c'è l'8 settembre, anche il 9, il 10...
 </p>
@@ -37,13 +38,17 @@ E così, anche quando il profittatore turco giunge sulle coste e, nottetempo, de
 Crolla l'Europa nazifascista. E in un certo senso crolla l'Europa tutta. È il disastro della guerra, che porta via la vita e distrugge. Ma i nostri non lo sanno. Giocano a pallone, si divertono, in un tempo sospeso in modo indeterminato.
 
 Un film sulla fuga. Che si apre con la citazione "In tempi come questi la fuga è l'unico mezzo per mantenersi vivi e continuare a sognare"  e si chiude con la dedica a "tutti quelli che stanno scappando" (come Corrado, che alla fine ce la fa, o forse no chissà, a fuggire dall'isola).
-E che però per l'intera durata è un film statico, nessuno si muove: persino Corrado rimane bloccato, con tutte le sue lettere, sull'isola giacché i suoi tentativi di fuga falliscono miseramente.
+E che però per l'intera durata è un film statico, nessuno si muove: persino Corrado rimane bloccato sull'isola, con tutte le sue lettere, giacché i suoi tentativi di fuga falliscono miseramente.
 
 La chiave di lettura ci viene suggerita sul finale dalle parole disincantate del sergente, invecchiato, quando rivede il tenente a tavola. L'utopia, il sogno di cambiare l'Italia e di costruirla daccapo, stavolta per bene, dalle fondamenta, nuove, repubblicane, democratiche... be', è tutto fallito.
-"Avete vinto voi, ma almeno non riuscirete a considerarmi vostro complice... così gli ho detto, e son tornato qui".
+<blockquote>
+<p>
+Avete vinto voi, ma almeno non riuscirete a considerarmi vostro complice... così gli ho detto, e son tornato qui.
+</p>
+</blockquote>
 Il sergente si volta a guardare il mare, in attesa di qualcosa, o forse di qualcuno. O forse no.
 
-## Correlati
+### Correlati
 Per il tema del naufragio: il film *[Travolti da un insolito destino nell'azzurro mare d'agosto]({% post_url 2022-2/2022-08-15-insolito-destino %})* di Wertmüller.
 Per un approccio maldestro, ma sincero alla poesia, mi ricorda *[Il postino]({% post_url other/1970-01-01-il-postino %})* (anche in quel caso l'ambientazione è un'isola).
 
