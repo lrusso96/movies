@@ -20,10 +20,11 @@ module.exports = {
             },
             blockquote: {
               border: 'none',
+              fontStyle: "normal",
               p: {
                 marginBottom: "0.4rem",
                 position: 'relative',
-                fontStyle: "normal"
+                fontStyle: "italic",
               },
               cite: {
                 fontStyle: "normal"
@@ -35,7 +36,7 @@ module.exports = {
               left: '-1.4rem',
 //              top: '-1.1rem'
             },
-            'blockquote p:first-of-type::after': {
+            'blockquote p:last-of-type::after': {
               content: 'close-quote',
               marginLeft: '0.2rem'
             },
