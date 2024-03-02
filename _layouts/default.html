@@ -7,7 +7,9 @@
     <title>{{ page.title }}</title>
     <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    {% if page.infinite_jekyll %}
     <script src="{{ site.url | append: site.baseurl | append: '/assets/js/infinite-jekyll.js' }}"></script>
+    {% endif %}
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" href="{{ site.url | append: site.baseurl | append: '/assets/css/main.css' }}"> 
   </head>
@@ -115,7 +117,7 @@
           <li>
             
 
-<form class="w-auto sm:mx-auto py-2">   
+<form class="w-auto sm:p-4 py-2">   
   <div class="relative">
       <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
           <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
