@@ -8,7 +8,7 @@ local_cover: true
 imdb_id: tt0102426
 ---
 <blockquote>
-<p class="font-['Special_Elite'] !not-italic">
+<p class="font-poem !not-italic">
 Quale è la cosa più bella<br/>
 sopra la terra bruna? Uno dice «una torma<br/>
 di cavalieri», uno  «di fanti», uno «di navi».<br/>

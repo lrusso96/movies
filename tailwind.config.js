@@ -9,6 +9,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        poem: "Special Elite"
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
